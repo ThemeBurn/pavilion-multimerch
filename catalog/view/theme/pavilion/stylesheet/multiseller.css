@@ -1,0 +1,1144 @@
+/* table alignment style override */
+#content .content table.list .left {
+  width: auto;
+  float: none;
+}
+
+.checkout-content .buttons {
+  width: 98% !important;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+
+.ms-totals {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  font-weight: bold;
+  color: #38B0E3;
+}
+
+.ffSample {
+  display: none;
+}
+
+.ms-form .content {
+  position: relative;
+}
+
+.ms-overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+  opacity: 0.6;
+  position: absolute;
+}
+
+.ms-product div.error {
+  margin-top: 5px;
+}
+
+.ms-product div.error p {
+  margin: 0;
+}
+
+.ms-account-product-form p.warning.main,
+.ms-account-profile p.warning.main {
+  display: none;
+}
+
+.ms-product .progress div .ui-widget-content,
+.ms-product .progress div .ui-widget-header {
+  background-image: none !important;
+  border: 1px solid #6db1f2;
+  background-color: #92c6f9 !important;
+}
+
+.ms-product .progress div.ui-progressbar {
+  margin: 10px 0;
+  height: 20px; 
+}
+
+.ms-product .progress div.ui-progressbar div.label {
+    float: left;
+    width:100%;
+    text-align:center;
+    margin-top: 3px;
+    font-weight: bold;
+}
+
+.ms-product .progress {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.ms-product .scrollbox {
+  border: 1px solid #CCCCCC;
+  width: 350px;
+  height: 150px;
+  background: #FFFFFF;
+  overflow: auto !important;
+}
+.ms-product .scrollbox img {
+  float: right;
+  cursor: pointer;
+}
+
+.ms-product .scrollbox div {
+  padding: 3px;
+}
+.ms-product .scrollbox div input {
+  margin: 0px;
+  padding: 0px;
+  margin-right: 3px;
+}
+.ms-product .scrollbox div.even {
+  background: #FFFFFF;
+}
+.ms-product .scrollbox div.odd {
+  background: #E4EEF7;
+}
+
+.ms-product .scrollbox div.odd.disabled {
+  background: #EDEDED;
+  color: #848484; 
+}
+
+.ms-product .scrollbox div.even.disabled {
+  background: #F8F8F8;
+  color: #848484; 
+}
+
+.ms-product textarea {
+  width: 400px;
+  height: 100px;
+}
+
+.ms-product .product_image_files {
+  overflow: visible;
+  margin-right: -10px;
+  margin-top: -10px;
+}
+.ms-product .product_image_files:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.ms-product .ms-image {
+  position: relative;
+  float: left;
+  margin: 10px 10px 0 0;
+  cursor: move;
+}
+
+.ms-product .ms-download {
+  margin: 10px 0;
+  height: 30px;
+  clear: both;
+}
+.ms-product .ms-download-name {
+  font-weight: bold;
+  background: #ffffff url(../image/ms-tick.png) no-repeat left top;
+  display: inline-block;
+  padding-left: 40px;
+  line-height:30px;
+}
+
+.ms-account-product-form .ms-button-delete {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+}
+
+.ms-account-product-form .plus {
+  background-image: url(../image/ms-plus-blue.png);
+}
+
+.ms-account-product-form .minus {
+  background-image: url(../image/ms-minus-blue.png);
+}
+
+.ms-account-product-form .option_required {
+  background-image: url(../image/ms-tick.png);
+}
+
+.ms-account-product-form .option_required.bw {
+  background-image: url(../image/ms-tick-bw.png);
+}
+
+.ms-account-product-form .option {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.o-heading {
+  text-align: center;
+  position: relative;
+  margin-bottom: 0px;
+  padding: 10px 0;
+  color: #555555;
+  border: 1px solid #EEEEEE;
+  background: #EEEEEE;
+  font-weight: bold;
+}
+
+.o-heading.loading {
+  background-image: url(view/image/loading.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.o-heading .ms-button-delete {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  right: 8px;
+  background-size: 16px 16px;
+  height: 16px;
+  width: 16px;  
+}
+
+.o-heading .option_required {
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  left: 12px;
+}
+
+.o-content {
+  padding: 10px;
+  border: 1px solid #DDDDDD;
+  border-top: none;
+}
+
+.option_value {
+    margin-bottom: 5px;
+}
+
+.select_option_value {
+    margin-top: 15px;
+}
+
+.option_name {
+  display: inline-block;
+  width: 125px;
+}
+
+span.option_price,
+input.option_quantity {
+  margin-right: 25px;
+}
+
+.option_value .ms-button-delete,
+.option_price_prefix,
+.option_required {
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  padding-bottom: 1px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.ms-product .ms-download .ms-buttons {
+  display: inline-block;
+  float: right;
+}
+
+.ms-product .ms-download .ms-buttons a,
+.ms-product .ms-download .ms-buttons span.disabled {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin: 0 1px;
+}
+
+.ms-product .ms-button-upload {
+  color: white;
+  height: 25px;
+  line-height: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  background: url('../image/button.png') top left repeat-x;
+  text-align: center;
+  
+  -webkit-border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -khtml-border-radius: 7px 7px 7px 7px;
+  border-radius: 7px 7px 7px 7px;
+  -webkit-box-shadow: 0px 2px 2px #DDDDDD;
+  -moz-box-shadow: 0px 2px 2px #DDDDDD;
+  box-shadow: 0px 2px 2px #DDDDDD;
+}
+
+.ms-product .ms-download .ms-button-delete {
+  background-image: url(../image/ms-cross.png);
+}
+
+.ms-product .ms-download .ms-button-delete.disabled {
+  background-image: url(../image/ms-cross-bw.png);
+}
+
+.ms-product .ms-download .ms-button-update {
+  background-image: url(../image/ms-refresh.png);
+}
+
+.ms-product .ms-download span.ms-button-update.disabled {
+  background-image: url(../image/ms-refresh-bw.png);
+}
+
+.ms-product .uploadify-queue {
+  display: none;
+}
+
+.ms-product .ms-download .ms-button-download {
+  background-image: url(../image/ms-arrowdown.png);
+}
+
+.ms-product .ms-download .ms-button-download.disabled {
+  background-image: url(../image/ms-arrowdown-bw.png);
+}
+
+.ms-product .ms-remove {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 32px;
+  height: 32px;
+  background: url('../image/ms-cross.png');
+  cursor: pointer;
+}
+
+.ms-account-product-form .attention.ms-commission span,
+.ms-account-profile .attention.ms-commission span {
+  font-weight: bold;
+}
+
+.ms-language-div {
+}
+
+.ms-note {
+  font-size: 11px;
+  font-style: italic;
+  margin-top: 5px;
+  opacity: 0.6;
+}
+
+.ms-sellerprofile.description {
+  color: black;
+  border-bottom: 0;
+  width: auto;
+}
+
+.ms-pending {
+  color: #AAA;
+}
+
+#ms-withdrawal input[type='radio'], #ms-withdrawal span {
+  vertical-align: middle;
+  margin: 0;
+}
+
+#ms-withdrawal tr:first-child + tr td:first-child + td {
+  padding-top: 5px;
+}
+
+#ms-withdrawal p {
+  margin-bottom: 10px;
+}
+
+.ms-catalog-seller-profile .seller-banner img {
+}
+
+
+.ms-catalog-seller-profile .seller-description {
+    white-space: pre-wrap;
+}
+.ms-catalog-seller-profile .avatar-box {
+    display: inline-block;
+    margin: 0;
+    float: left;
+}
+
+.ms-catalog-seller-profile .avatar-box>img {
+    margin: 0;
+}
+
+.ms-catalog-seller-profile .info-box h3 {
+    margin: 0;
+}
+
+.ms-catalog-seller-profile .info-box>div {
+    display:inline-block;
+    margin-left: 20px;
+}
+
+.ms-catalog-seller-profile .product-thumb .caption {
+    min-height: 0;
+    text-align: center;
+}
+
+.ms-catalog-seller-profile .product-thumb .button-group button {
+    width: 100%
+}
+
+/* seller list */
+.catalog-seller .caption {
+    min-height: 150px;
+}
+
+.catalog-seller .caption p {
+    margin: 0
+}
+
+.catalog-seller .product-grid .seller-description {
+    display: none;
+}
+
+
+.catalog-seller .product-list {
+
+}
+
+.ms-carousel ul li a {
+    color: #38B0E3;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-decoration: none;
+}
+
+.ms-carousel .jcarousel-container {
+    margin-bottom: 0;
+}
+
+.ms-carousel .image img {
+  padding: 3px;
+  border: 1px solid #E7E7E7;
+}
+
+/* general dialog styles */
+
+.ms-jquery-dialog,
+div.ms-jquery-dialog.ui-widget-content,
+.ms-jquery-dialog div.ui-widget-content {
+  background-color: white;
+}
+
+.ms-jquery-dialog .ui-widget-header,
+.ms-jquery-dialog .ui-state-hover {
+       background: url("../../../javascript/jquery/ui/themes/base/images/ui-bg_glass_75_dadada_1x400.png") repeat-x scroll 50% 50% #CCCCCC;
+       border: 1px solid #BBBBBB;
+       color: #666666;
+       border-bottom-left-radius: 0;
+       border-bottom-right-radius: 0;
+}
+
+.ms-jquery-dialog .ui-widget-header .ui-icon,
+.ms-jquery-dialog .ui-state-hover .ui-icon,
+.ms-jquery-dialog .ui-state-focus .ui-icon {
+  background-image: url("../../../javascript/jquery/ui/themes/base/images/ui-icons_222222_256x240.png");
+  border: medium none;
+    float: right;
+}
+
+
+.ms-jquery-dialog .ui-widget-content.ui-dialog-buttonpane {
+  border-top: none;
+}
+
+.ms-jquery-dialog .ui-dialog-buttonset {
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* general dialog form styles */
+
+.ms-jquery-dialog p.warning {
+  padding: 10px 10px 10px 33px;
+  margin-bottom: 15px;
+  background: #FFD1D1 url('../image/warning.png') 10px center no-repeat;
+  border: 1px solid #F8ACAC;
+}
+
+.ms-jquery-dialog .ms-form {
+  width: 100%;
+}
+
+.ms-jquery-dialog .ms-form label {
+  margin-left: 20px;
+  width: 115px;
+  vertical-align: top;
+}
+
+.ms-jquery-dialog .ms-form input {
+  width: 250px;
+}
+
+.ms-jquery-dialog .ms-form textarea {
+  width: 250px;
+  height: 150px;
+}
+
+.ms-jquery-dialog .ms-form label,
+.ms-jquery-dialog .ms-form input,
+.ms-jquery-dialog .ms-form textarea {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+/* seller contact form */
+
+.ms-sellercontact-image {
+  text-align: center;
+}
+
+.ms-sellercontact-image img {
+  padding: 3px;
+  border: 1px solid #E7E7E7;    
+}
+
+.ms-sellercontact-image a {
+  text-decoration: none;
+  outline: none;    
+}
+
+.ms-sellercontact-dialog h3,
+.ms-sellercontact-dialog h4 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#ms-captcha {
+  display: inline;
+}
+
+/* seller account product list*/
+.ms-button {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin: 0 1px;
+}
+
+.ms-account-product table.list tbody td {
+  vertical-align: middle;
+}
+
+.ms-account-product-form .ms-button {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 3px 0;
+}
+
+.ms-account-product-form .ms-button-delete {
+  background-image: url(../image/ms-cross.png);
+}
+
+.ms-button-view {
+  background-image: url(../image/ms-magnifier.png);
+}
+
+.ms-button-publish {
+  background-image: url(../image/ms-plus.png);
+}
+
+.ms-button-unpublish {
+  background-image: url(../image/ms-minus.png);
+}
+
+.ms-button-edit {
+  background-image: url(../image/ms-pencil.png);
+}
+
+.ms-button-clone {
+  background-image: url(../image/ms-clone.png);
+}
+
+.ms-button-relist {
+  background-image: url(../image/ms-relist.png);
+}
+.ms-button-delete {
+  background-image: url(../image/ms-cross.png);
+}
+
+
+
+.ms-account-order .products p,
+.ms-account-dashboard .products p {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+}
+
+.ms-account-order .products .name,
+.ms-account-dashboard .products .name {
+  float: left;
+}
+
+.ms-account-order .products .total,
+.ms-account-dashboard .products .total {
+  float: right;
+}
+
+ul.ms-sellermenu.graphical li {
+  overflow: hidden;
+  clear: both;
+  width: 100%;
+  margin-bottom: 10px;
+}
+ul.ms-sellermenu.graphical li:last-child {
+  margin-bottom: 0;
+}
+ul.ms-sellermenu.graphical li img {
+  display: inline-block;
+  width: 30px;
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+}
+ul.ms-sellermenu.graphical li a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* seller dashboard */
+
+.ms-account-dashboard h2,
+.ms-account-transaction h2 {
+  clear: both;
+}
+.ms-account-dashboard .overview,
+.ms-account-dashboard .overview ~ div
+{
+  width: 33.3333%;
+  margin-bottom: 30px;
+  padding-left: 15px;
+}
+.ms-account-dashboard .stats + div {
+  display: none;
+}
+.ms-account-dashboard .overview .nickname {
+  display: block;
+  margin-top: 10px;
+}
+
+.ms-account-dashboard .overview p,
+.ms-account-dashboard .stats p
+{
+  margin-bottom: 0;
+}
+.ms-account-dashboard .overview p span:last-child:not(:first-child),
+.ms-account-dashboard .stats p span:last-child:not(:first-child)
+{
+  font-weight: bold;
+}
+
+
+.ms-account-dashboard .nav a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  margin-bottom: 5px;
+  height: 32px;
+}
+
+.ms-account-dashboard .nav a span {
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.ms-account-dashboard .nav a img {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+
+/*
+ *
+ * datatables 
+ *
+ */
+
+.dataTable {
+  table-layout: auto;
+}
+.dataTable thead td,
+.dataTable thead th
+{
+  white-space: nowrap;
+}
+.dataTable thead [class*="sorting"] {
+  padding-right: 30px;
+}
+
+/* table cell sizes*/
+table .tiny {
+  width: 50px;
+}
+table .small {
+  width: 75px;
+}
+table .medium {
+  width: 125px;
+}
+table .large {
+  width: 200px;
+}
+
+table .filter {
+  background-color: transparent;
+}
+table .filter input[type="text"] {
+  width: 100%;
+}
+.dataTables_filter {
+  display: none;
+}
+.dataTables_wrapper .dataTables_paginate span,
+.dataTables_wrapper .dataTables_paginate a
+{
+  display: inline-block;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: top;
+  border: none;
+  border-radius: 1px;
+}
+.dataTables_wrapper .dataTables_paginate span,
+.dataTables_wrapper .dataTables_paginate span a
+{
+  width: 30px;
+}
+.dataTables_wrapper .dataTables_paginate a.paginate_button {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.dataTables_wrapper .dataTables_paginate a.paginate_button:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.dataTables_wrapper .dataTables_paginate a.paginate_active {
+  background-color: transparent;
+}
+.dataTables_wrapper .paging_full_numbers .paginate_button_disabled {
+  display: none;
+}
+.dataTables_wrapper .pagination .dataTables_info {
+  opacity: 0.4;
+}
+
+.avatars-list input {
+    display: none;
+}
+.avatars-list label {
+    padding: 5px;
+}
+.avatars-list div {
+    float: left;
+    margin: 5px;
+}
+.avatars-list img {
+    cursor: pointer;
+}
+.avatars-list label span {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+.avatars-group {
+    overflow: hidden;
+}
+.comment-column-right {
+    float: right;
+    padding: 0 0 10px 10px;
+    width: 20%;
+}
+.comment-ratings {
+    width: 100%;
+}
+.comment-ratings tr td {
+    padding-right: 10px;
+}
+
+.inline {
+    display:inline;
+}
+
+.form-group .tb_submit {
+  margin-top: 0;
+  padding-top: 0;
+  text-align: initial;
+  border-top: 0 none;
+}
+.form-group .tb_submit:before {
+  content: none;
+}
+
+/* ------------------------------------------------------------ */
+/* ---   P A V I L I O N   ------------------------------------ */
+/* ------------------------------------------------------------ */
+
+.avatar-box {
+  display: block;
+  max-width: 100%;
+}
+
+/*** WYSIWYG Editor ***/
+
+.note-editor {
+  overflow: visible !important;
+}
+.note-editor .btn-default {
+  background-color: #ddd !important;
+  color: #333 !important;
+}
+.note-editor .btn-default.active:not(:hover) {
+  background-color: #999 !important;
+  color: #333 !important;
+}
+.note-editor .note-fontname {
+  width: 150px;
+}
+.note-editor .note-fontname .btn {
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+.note-editor .note-fontname .note-current-fontname {
+  display: block;
+  overflow: hidden;
+  padding: 0 25px 0 15px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.note-editor .note-fontname .caret {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  display: block;
+  margin-top: -3px;
+}
+
+/*** Data tables ***/
+
+table.dataTable td {
+  padding: 10px 20px;
+}
+table.dataTable td.small {
+  font-size: inherit;
+}
+table.dataTable td > input {
+  width: 100% !important;
+}
+.ms-container .table-responsive + .tb_submit,
+.ms-container .table-responsive + .buttons
+{
+  padding-top: 0;
+  margin-top: 0;
+}
+.dataTables_wrapper .pagination {
+  display: table;
+  width: 100%;
+}
+.dataTables_wrapper .pagination > div {
+  display: table-cell;
+  float: none;
+  vertical-align: middle;
+}
+.dataTables_wrapper .pagination > div:first-child {
+  text-align: left;
+}
+.dataTables_wrapper .pagination > div:last-child {
+  text-align: right;
+}
+.table-responsive {
+  overflow-x: visible;
+}
+@media only screen and (max-width: 1000px) {
+  .table-responsive {
+    overflow-x: auto
+  }
+}
+
+/*** Buttons ***/
+
+.ms-container .input-group .tb_button_wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.ms-container .table-responsive + .tb_submit:before,
+.ms-container .table-responsive + .buttons:before
+{
+  content: none;
+}
+.ms-container .input-group .tb_button_wrap .tb_button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.ms-button-delete.tb_button.fa {
+  width: auto !important;
+  padding: 0 10px !important;
+}
+.ms-button-delete.tb_button.fa:after {
+  content: ' ' attr(title);
+}
+
+/*** Tabs ***/
+
+.ms-container.tb_tabs.tb_style_1 > .ui-tabs-nav,
+.ms-container.tb_tabs.tb_style_1 > .ui-tabs-nav .ui-state-active,
+.ms-container .tb_tabs.tb_style_1 > .ui-tabs-nav,
+.ms-container .tb_tabs.tb_style_1 > .ui-tabs-nav .ui-state-active
+{
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.ms-container.tb_tabs.tb_style_1 > .ui-tabs-nav,
+.ms-container .tb_tabs.tb_style_1 > .ui-tabs-nav
+{
+  margin-bottom: 30px;
+}
+.ms-container.tb_tabs.tb_style_1 > .ui-tabs-nav .ui-state-active,
+.ms-container .tb_tabs.tb_style_1 > .ui-tabs-nav .ui-state-active
+{
+  border-bottom-color: transparent;
+}
+.ms-container.tb_tabs.tb_style_3 > .ui-tabs-nav .ui-state-active,
+.ms-container .tb_tabs.tb_style_3 > .ui-tabs-nav .ui-state-active{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.ms-container .tb_tabs_nav img {
+  vertical-align: baseline;
+}
+.ms-container .tb_tabs_content {
+  border: none !important;
+}
+
+/*** Sellers ***/
+
+.ms-sellerprofile .country-flag {
+  vertical-align: middle;
+  margin-top: -0.065em;
+  margin-right: 0.25em;
+  font-size: inherit;
+}
+.ms-sellerprofile .seller-description {
+  padding-top: 20px;
+}
+
+/*** Seller profile ***/
+
+.seller-data .info-box .avatar-box {
+  margin-bottom: 20px;
+}
+.seller-data .info-box ul li img {
+  vertical-align: top;
+  margin-top: 10px;
+}
+#ms-sellerinfo textarea[name*="description"] {
+  width: 100%;
+}
+
+/*** Product page ***/
+
+#product .ms-sellerprofile .seller-data .avatar-box {
+  float: left;
+  margin: 0 20px 0 0;
+}
+#product .ms-sellerprofile .seller-data .info-box {
+  overflow: hidden;
+}
+#product .ms-sellerprofile .nickname {
+  display: block;
+}
+#product .ms-sellerprofile .nickname b {
+  font-weight: inherit;
+}
+
+/*** Product form ***/
+
+.ms-container p + h2,
+.ms-container br + h2
+{
+  margin-top: 30px;
+}
+.ms-container #language-tabs {
+  float: right;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+}
+.ms-container #language-tabs a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.ms-container #tab-specials > legend,
+.ms-container #tab-discounts > legend
+{
+  display: none;
+}
+.ms-container #tab-specials table thead tr > :last-child,
+.ms-container #tab-discounts table thead tr > :last-child
+{
+  width: 60px;
+}
+#ms-new-product textarea[name*="product_description"] {
+  width: 100%;
+}
+
+/*** Transactions ***/
+
+.ms-account-transaction > p {
+  margin-bottom: 0;
+}
+.ms-account-transaction > .alert,
+.ms-account-transaction > form
+{
+  margin-top: 30px;
+}
+
+/* ---   Badges   --------------------------------------------- */
+
+.ms-badges {
+  padding-top: 10px;
+}
+.ms-account-dashboard .stats p + h3 {
+  margin-top: 20px;
+}
+
+/* ---   Comments   ------------------------------------------- */
+
+#tab-comments .content .comment-content {
+  margin: 10px 0 0 0 !important;
+}
+#tab-comments .pcComments .content + .content {
+  margin-top: 20px;
+}
+#tab-comments .pcComments .content + .content:before {
+  content: '';
+  display: block;
+  margin-bottom: 20px;
+  border-bottom: 1px solid;
+  opacity: 0.15;
+}
+#tab-comments .pcForm b {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+#tab-comments .pcForm b + br {
+  display: none;
+}
+#tab-comments .pcForm textarea {
+  display: block;
+  max-width: 100%;
+}
+.ms-catalog-seller-profile .tb_products + hr {
+  margin-bottom: 30px;
+}
+.ms-catalog-seller-profile .tb_products + hr + h3 {
+  margin-bottom: 20px;
+}
+#cmContainer #tab-comments .pcForm,
+#product #tab-comments .pcForm
+{
+  position: relative;
+  margin-top: 30px;
+  padding: 20px;
+}
+#cmContainer #tab-comments .pcForm > *,
+#product #tab-comments .pcForm > *
+{
+  position: relative;
+  z-index: 2;
+}
+#cmContainer #tab-comments .pcForm:after,
+#product #tab-comments .pcForm:after
+{
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.05;
+}
+#cmContainer #tab-comments .pcForm input,
+#cmContainer #tab-comments .pcForm textarea,
+#product #tab-comments .pcForm input,
+#product #tab-comments .pcForm textarea
+{
+  background-color: #fff;
+}
+#cmContainer #tab-comments .pcForm img[src*="captcha"],
+#product #tab-comments .pcForm img[src*="captcha"]
+{
+  margin-top: 10px;
+}
+
+
+/* ---   Messages   ------------------------------------------- */
+
+#ms-message-form textarea {
+  width: 100%;
+  height: 100px;
+}
+.ms-account-conversation-view hr {
+  display: none;
+}
+.ms-account-conversation-view .ms-messages {
+  margin-top: 30px;
+}
+.ms-account-conversation-view .ms-message-row {
+  display: table;
+  padding-left: 20px;
+  padding-right: 20px;
+  vertical-align: top;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-bottom-style: solid;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.ms-account-conversation-view .ms-message-row > .ms-message {
+  display: table-cell;
+  float: none;
+}
+.ms-account-conversation-view .ms-message-row > .ms-message-sender {
+  width: 150px;
+}
+.ms-account-conversation-view .ms-message-row > .ms-message-text {
+  width: auto;
+}
+.ms-account-conversation-view .ms-message-row > .ms-message-date {
+  width: 120px;
+  opacity: 0.5;
+}
+.ms-account-conversation-view .ms-message-row.ms-message-head {
+  background: rgba(0, 0, 0, 0.07);
+}
+.ms-account-conversation-view .ms-message-row.ms-message-head > div {
+  font-weight: bold !important;
+  font-style: normal;
+  opacity: 1;
+}
+
+
+

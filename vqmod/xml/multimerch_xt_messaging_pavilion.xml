@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<!DOCTYPE modification [
+<!ENTITY adminFolder "admin">
+<!ENTITY themeFolder "pavilion">
+]>
+<modification>
+  <id>MultiMerch Private Messaging System</id>
+  <version>1.2</version>
+  <author>http://multimerch.com/</author>
+
+  <!-- Messages -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/account-message.tpl">
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <?php $class = 'ms-container'; ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $class .= ' ms-account-conversation-view'; ?>
+      ]]></add>
+    </operation>
+  </file>
+
+  <!-- Account -->
+  <file name="catalog/view/theme/&themeFolder;/template/account/account.tpl">
+    <!-- Conversations link for non-sellers in the "My Account" Area -->
+    <operation>
+      <search position="after" offset="1"><![CDATA[
+          <li><a href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
+      ]]></search>
+      <add><![CDATA[
+        <?php if ($this->config->get('mmess_conf_enable')) { ?>
+          <li>
+            <a href="<?php echo $this->url->link('account/msconversation', '', 'SSL'); ?>"><?php echo $ms_account_messages; ?></a>
+          </li>
+        <?php } ?>
+      ]]></add>
+    </operation>
+    <!-- Messages link in the Seller menu -->
+    <operation>
+      <search position="before"><![CDATA[
+        <?php if ($this->config->get('msconf_allow_withdrawal_requests')) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php if ($this->config->get('mmess_conf_enable')) { ?>
+          <li>
+            <a href="<?php echo $this->url->link('account/msconversation', '', 'SSL'); ?>">
+              <?php if($this->config->get('msconf_graphical_sellermenu')) { ?>
+                <img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-envelope-96.png" />
+              <?php } ?>
+              <?php echo $ms_account_messages; ?>
+            </a>
+          </li>
+        <?php } ?>
+      ]]></add>
+    </operation>
+    <!-- unread PM notification -->
+    <operation error="skip">
+      <search position="replace" offset="10"><![CDATA[
+        <?php $unread_messages = (int)$this->MsLoader->MsConversation->unreadMessages($this->customer->getId()); ?>
+      ]]></search>
+      <add><![CDATA[
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <?php if ($success) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $unread_messages = (int)$this->MsLoader->MsConversation->unreadMessages($this->customer->getId()); ?>
+        <?php if ($unread_messages) { ?>
+        <div class="alert alert-danger"><i class="fa fa-exclamation-circle">
+            <?php if ($unread_messages == 1) {
+                echo $ms_account_unread_pm;
+            } else {
+                echo sprintf($ms_account_unread_pms, $unread_messages);
+            }?>
+            </i><button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <?php } ?>
+      ]]></add>
+    </operation>
+  </file>
+
+  <!-- Module Account -->
+  <file name="catalog/view/theme/&themeFolder;/template/module/account.tpl">
+    <operation>
+      <search position="before"><![CDATA[<?php if ($logged) { ?>]]></search>
+      <add><![CDATA[
+        <?php if ($this->config->get('mmess_conf_enable')) { ?>
+        <li><a href="<?php echo $this->url->link('account/msconversation', '', 'SSL'); ?>"><?php echo $ms_account_messages; ?></a></li>
+        <?php } ?>
+      ]]></add>
+    </operation>
+    
+    <operation>
+      <search position="after"><![CDATA[
+        <a class="list-group-item" href= "<?php echo $this->url->link('seller/account-transaction', '', 'SSL'); ?>"><?php echo $ms_account_transactions; ?></a>
+      ]]></search>
+      <add><![CDATA[
+        <?php if ($this->config->get('mmess_conf_enable')) { ?>
+            <a href="<?php echo $this->url->link('account/msconversation', '', 'SSL'); ?>" class="list-group-item"><?php echo $ms_account_messages; ?></a>
+        <?php } ?>
+      ]]></add>
+    </operation>
+  </file>
+
+</modification>

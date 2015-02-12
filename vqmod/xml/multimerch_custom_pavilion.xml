@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE modification [
+<!ENTITY themeFolder "pavilion">
+]>
+<modification>
+  <id>MultiMerch Pavilion Theme</id>
+  <version>1.2</version>
+  <author>http://themeburn.com/</author>
+
+
+
+  <!-- LOAD BOOTSTRAP -->
+  <file name="catalog/view/theme/&themeFolder;/template/tb/header.tpl">
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <?php // THEME SCRIPTS ////////////////////////// ?>
+      ]]></search>
+      <add><![CDATA[
+        <link rel="stylesheet" type="text/css" href="catalog/view/theme/pavilion/stylesheet/bootstrap.min.css" media="screen" />
+        <script type="text/javascript" src="catalog/view/javascript/bootstrap/js/bootstrap.min.js"></script>
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- CSS PATCH -->
+  <file name="catalog/view/theme/&themeFolder;/template/tb/main.css.tpl">
+    <operation error="skip">
+      <search position="after" offset="1"><![CDATA[
+        .form-group > label + div[class*="col-"] > div
+      ]]></search>
+      <add><![CDATA[
+        float: none;
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after" offset="2"><![CDATA[
+        .tb_table_1 tbody:first-child tr:first-child td {
+      ]]></search>
+      <add><![CDATA[
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        .tb_table_1,
+      ]]></search>
+      <add><![CDATA[
+        td input,
+        td select,
+        td textarea,
+        th input,
+        th select,
+        th textarea
+        {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        .table-responsive table {
+          min-width: 100%;
+        }
+        .table-responsive,
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- SELLERS LIST -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/catalog-seller.tpl">
+    <operation error="skip">
+      <search position="replace" offset="-1"><![CDATA[
+        <div class="seller-description">
+      ]]></search>
+      <add><![CDATA[
+        <div class="seller-description">
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- PRODUCT PAGE -->
+  <file name="catalog/view/theme/&themeFolder;/template/product/product.tpl">
+    <!-- seller information on product page -->
+    <operation error="skip">
+      <search position="after" offset="3"><![CDATA[
+      <p class="tb_purchase_info tb_text_str_4"><?php echo $text_minimum; ?></p>
+      ]]></search>
+      <add><![CDATA[
+      <?php if (isset($seller) && !empty($seller)) { ?>
+      <span class="clear tb_sep"></span>
+      <span class="clear tb_sep tb_border_str_2"></span>
+      <div class="ms-sellerprofile description">
+        <h2><?php echo $ms_catalog_product_sellerinfo; ?></h2>
+        <div class="seller-data">
+          <div class="avatar-box">
+            <a href="<?php echo $seller['href']; ?>"><img src="<?php echo $seller['thumb']; ?>" /></a>
+          </div>
+          <div class="info-box">
+            <ul class="list-unstyled">
+                <li><a class="nickname h3 tb_main_color" style="text-decoration: none" href="<?php echo $seller['href']; ?>"><b><?php echo $seller['nickname']; ?></b></a></li>
+              <?php if ($seller['country']) { ?>
+                <li><?php echo $ms_catalog_seller_profile_country; ?></b> <?php echo $seller['country']; ?></li>
+              <?php } ?>
+              
+              <?php if ($seller['zone']) { ?>
+                <li><?php echo $ms_catalog_seller_profile_zone; ?></b> <?php echo $seller['zone']; ?></li>
+              <?php } ?>
+      
+              <?php if ($seller['company']) { ?>
+                <li><?php echo $ms_catalog_seller_profile_company; ?></b> <?php echo $seller['company']; ?></li>
+              <?php } ?>
+
+              <?php if ($seller['website']) { ?>
+                <li><?php echo $ms_catalog_seller_profile_website; ?></b> <?php echo $seller['website']; ?></li>
+              <?php } ?>
+
+              <li><?php echo $ms_catalog_seller_profile_totalsales; ?></b> <?php echo $seller['total_sales']; ?></li>
+              <li><?php echo $ms_catalog_seller_profile_totalproducts; ?></b> <?php echo $seller['total_products']; ?></li>
+            </ul>
+            <?php if ($this->config->get('mmess_conf_enable') || $this->config->get('msconf_enable_private_messaging') == 2) { ?>
+            <?php if ((!$this->customer->getId()) || ($this->customer->getId() != $seller['seller_id'])) { ?>
+            <?php echo $contactForm; ?>
+            <div class="contact">
+              <?php if ($this->customer->getId()) { ?>
+              <div class="button-group">
+                <button type="button" class="tb_button tb_h_24 ms-sellercontact" data-toggle="modal" data-target="#contactDialog"><?php echo $ms_catalog_product_contact; ?></button>
+              </div>
+              <?php } else { ?>
+              <?php echo sprintf($this->language->get('ms_sellercontact_signin'), $this->url->link('account/login', '', 'SSL'), $seller['nickname']); ?>
+              <?php } ?>
+            </div>
+            <?php } ?>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+      ]]></add>
+    </operation>
+    
+    <!-- product attribute tab headers -->
+    <operation error="skip">
+      <search position="after" offset="1"><![CDATA[
+        <nav class="tb_tabs_nav">
+      ]]></search>
+      <add><![CDATA[
+        <?php foreach ($ms_product_attributes as $attribute) { ?>
+        <?php if(is_array($attribute['values']) && implode($attribute['values']) != '' && (isset($attribute['tab_display']) && $attribute['tab_display'])) { ?>
+        <li><a href="<?php echo $tbData->current_url; ?>#tab-attribute-<?php echo $attribute['attribute_id']; ?>"><?php echo $attribute['name'] ?></a></li>
+        <?php } ?>
+        <?php } ?>
+      ]]></add>
+    </operation>
+    
+    <!-- product attribute tab contents -->
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <div class="tb_tabs_content">
+      ]]></search>
+      <add><![CDATA[
+        <?php foreach ($ms_product_attributes as $attribute) { ?>
+        <?php if(isset($attribute['tab_display']) && $attribute['tab_display']) { ?>
+        <div id="tab-attribute-<?php echo $attribute['attribute_id']; ?>" class="tab-pane">
+          <?php echo implode(',',$attribute['values']); ?>
+        </div>
+        <?php } ?>
+        <?php } ?>
+      ]]></add>
+    </operation>
+
+    <!-- display attributes multimerch-style -->
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <dd><?php echo $stock; ?></dd>
+      ]]></search>
+      <add><![CDATA[
+        <?php if ($this->config->get('msconf_attribute_display') != 1) { ?>
+        <?php foreach ($ms_product_attributes as $attribute) { ?>
+        <?php if(is_array($attribute['values']) && implode($attribute['values']) != '' && (!isset($attribute['tab_display']) || !$attribute['tab_display'])) { ?>
+        <?php if ($attribute['attribute_type'] == MsAttribute::TYPE_IMAGE) { ?>
+        <?php $attribute['image'] = (!empty($attribute['image']) ? $this->MsLoader->MsFile->resizeImage($attribute['image'], 50, 50) : $this->MsLoader->MsFile->resizeImage('no_image.jpg', 50, 50)); ?>
+        <dt>
+          <img src="<?php echo $attribute['image']; ?>" style="vertical-align: middle; padding: 1px; border: 1px solid #DDDDDD; margin-bottom: 10px" />
+          <?php echo $attribute['name']; ?>:
+        </dt>
+        <dd><?php echo implode(',',$attribute['values']); ?></dd>
+        <?php } else { ?>
+        <dt><?php echo $attribute['name']; ?>:</dt>
+        <dd><?php echo implode(',',$attribute['values']); ?></dd>
+        <?php } ?>
+        <?php } ?>
+        <?php } ?>
+        <?php } ?>
+      ]]></add>
+    </operation>
+
+    <!-- display attributes opencart-style -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <?php if ($attribute_groups): ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php if ($this->config->get('msconf_attribute_display') != 0 && $attribute_groups): ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <?php if ($attribute_groups && (!$cpt_status || in_array('2', $tab_ids))): ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php if ($this->config->get('msconf_attribute_display') != 0 && $attribute_groups && (!$cpt_status || in_array('2', $tab_ids))): ?>
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- ACCOUNT PAGE SELLER MENU -->
+  <file name="catalog/view/theme/&themeFolder;/template/account/order_info.tpl">
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <?php echo $product['name']; ?>
+      ]]></search>
+      <add><![CDATA[
+      <?php
+        $this->load->language('multiseller/multiseller');
+        //$this->data = array_merge($this->data, $this->load->language('multiseller/multiseller'));
+        $seller = $this->MsLoader->MsSeller->getSeller($this->MsLoader->MsProduct->getSellerId($product['product_id']));
+        if ($seller) {
+          echo "<span class='ms-by-seller'>" . $this->language->get('ms_by') . " <a href='". $this->url->link('seller/catalog-seller/profile', 'seller_id=' . $seller['seller_id']) ."'>{$seller['ms.nickname']}</a>";
+        }
+      ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <td class="model"><?php echo $product['model']; ?></td>
+      ]]></search>
+      <add><![CDATA[
+        <?php foreach ($order_statuses as $order_status) { ?>
+        <?php if ($order_status['order_status_id'] == $product['order_status_id']) { ?>
+        <td class="order_status">
+          <?php echo $order_status['name']; ?>
+        </td>
+        <?php } ?>
+        <?php } ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <th class="model"><?php echo $column_model; ?></th>
+      ]]></search>
+      <add><![CDATA[
+        <th class="order_status"><?php echo $this->language->get('ms_status'); ?></th>
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- ALL PAGES BEFORE -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/*.tpl">
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <div id="content"
+      ]]></search>
+      <add><![CDATA[
+        <?php $class = 'ms-container'; ?>
+      ]]></add>
+    </operation>
+    <operation error="log">
+      <search position="before"><![CDATA[
+        <?php echo $content_bottom; ?>
+      ]]></search>
+      <add><![CDATA[
+        <script type="text/javascript">
+        tbApp.onScriptLoaded(function() {
+          tbCreateDialog($('#content a.colorbox'));
+          $("#content .ms-container.tb_tabs").tabs();
+          $("#content .ms-container").find(".tb_tabs").tabs();
+        });
+        </script>
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- STATISTICS -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/account-stats.tpl">
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <?php $class = 'ms-container'; ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $class .= ' tb_tabs tb_htabs tb_style_1 tb_ip_20 clearfix'; ?>
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- ACCOUNT PROFILE -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/account-profile.tpl">
+    <operation error="skip">
+      <search position="replace" index="1"><![CDATA[
+        <div class="buttons">
+      ]]></search>
+      <add><![CDATA[
+        <div class="buttons_group">
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace" index="2"><![CDATA[
+        <div class="buttons">
+      ]]></search>
+      <add><![CDATA[
+        <div class="buttons_group">
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- PRODUCT FORM -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/account-product-form.tpl">
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        id="ms-new-product" class="form-horizontal"
+      ]]></search>
+      <add><![CDATA[
+        id="ms-new-product" class="tb_tabs tb_ip_20 tb_htabs tb_style_1 clearfix form-horizontal ms-account-product-form"
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        ffClone
+      ]]></search>
+      <add><![CDATA[
+        ffClone tb_mt_20
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        tb_tabs_content
+      ]]></search>
+      <add><![CDATA[
+        tb_tabs_content tb_sep
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <div id="tab-general" class="tab-pane active">
+      ]]></search>
+      <add><![CDATA[
+        <div id="tab-general" class="tb_tabs tb_htabs tb_ip_5 tb_style_3 clearfix tab-pane active">
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+</modification>

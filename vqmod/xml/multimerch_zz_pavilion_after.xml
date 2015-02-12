@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE modification [
+<!ENTITY themeFolder "pavilion">
+]>
+<modification>
+  <id>MultiMerch Pavilion Theme</id>
+  <version>1.2</version>
+  <author>http://themeburn.com/</author>
+
+
+
+  <!-- ALL PAGES AFTER -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/*.tpl">
+
+    <!-- Slot Header -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <?php echo $header; ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->echoHeader($header); ?>
+      ]]></add>
+    </operation>
+
+    <!-- Slot Footer -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <?php echo $footer; ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->echoFooter($footer); ?>
+      ]]></add>
+    </operation>
+
+    <!-- Slot Breadcrumbs -->
+    <operation error="skip">
+      <search position="replace" offset="4"><![CDATA[
+        <ul class="breadcrumb">
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartSystem('route.breadcrumbs'); ?>
+        <nav class="breadcrumbs">
+          <ul class="clearfix">
+            <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+            <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+            <?php } ?>
+          </ul>
+        </nav>
+        <?php $tbData->slotStop(); ?>
+      ]]></add>
+    </operation>
+
+    <!-- Slot Page Title -->
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <h1>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartSystem('route.page_title'); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        </h1>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStop(); ?>
+      ]]></add>
+    </operation>
+
+    <!-- Slot Page Content -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <div id="content"
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartSystem('route.page_content'); ?>
+        <div
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <?php echo $content_bottom; ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStop(); ?>
+      ]]></add>
+    </operation>
+
+    <!-- Slot Javascript -->
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <script type="text/javascript">
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartJs(); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <script>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartJs(); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        </script>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStopJs(); ?>
+      ]]></add>
+    </operation>
+
+    <!-- Table classes -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <table class="list table
+      ]]></search>
+      <add><![CDATA[
+        <table cellpadding="0" cellspacing="0" class="tb_table_1
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        table-bordered
+      ]]></search>
+      <add><![CDATA[]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        table-hover
+      ]]></search>
+      <add><![CDATA[]]></add>
+    </operation>
+
+    <!-- Button classes -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[input-group-btn]]></search>
+      <add><![CDATA[tb_input_button_group]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[btn-group]]></search>
+      <add><![CDATA[tb_button_group]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        btn-default
+      ]]></search>
+      <add><![CDATA[
+        tb_text_str_6 tb_bg_str_3
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        btn-primary
+      ]]></search>
+      <add><![CDATA[]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        btn
+      ]]></search>
+      <add><![CDATA[
+        tb_button
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[tb_input_button_group]]></search>
+      <add><![CDATA[input-group-btn]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[tb_button_group]]></search>
+      <add><![CDATA[btn-group]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        buttons
+      ]]></search>
+      <add><![CDATA[
+        tb_submit tb_mt_30
+      ]]></add>
+    </operation>
+
+    <!-- Various Classes -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[class="nickname"]]></search>
+      <add><![CDATA[class="nickname h3"]]></add>
+    </operation>
+
+    <!-- Replace pagination -->
+    <operation error="skip">
+      <search position="replace" offset="-1"><![CDATA[
+        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
+      ]]></search>
+      <add><![CDATA[
+        <div class="pagination tb_border_str_2">
+          <?php echo str_replace('pagination', 'links', $pagination); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
+      ]]></search>
+      <add><![CDATA[
+        <div class="results"><?php echo $results; ?></div>
+      ]]></add>
+    </operation>
+
+    <!-- Tabs classes -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        nav nav-tabs
+      ]]></search>
+      <add><![CDATA[
+        tb_tabs_nav clearfix
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        tab-content
+      ]]></search>
+      <add><![CDATA[
+        tb_tabs_content
+      ]]></add>
+    </operation>
+
+    <!-- Language tabs -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <a class="lang" data-toggle="tab"
+      ]]></search>
+      <add><![CDATA[
+        <a class="tb_bg_hover_str_1 lang" data-toggle="tab"
+      ]]></add>
+    </operation>
+
+    <!-- Add full tab URL -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        href="#
+      ]]></search>
+      <add><![CDATA[
+        href="<?php echo $tbData->current_url; ?>#]]></add>
+    </operation>
+
+    <!-- Remove placeholders -->
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <?php echo $content_top; ?>
+      ]]></search>
+      <add><![CDATA[]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <?php echo $content_bottom; ?>
+      ]]></search>
+      <add><![CDATA[]]></add>
+    </operation>
+  </file>
+
+
+
+</modification>

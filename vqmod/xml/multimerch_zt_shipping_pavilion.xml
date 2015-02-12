@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE modification [
+<!ENTITY adminFolder "admin">
+<!ENTITY themeFolder "pavilion">
+]>
+<modification>
+  <id>MultiMerch Shipping Edition</id>
+  <version>1.2</version>
+  <author>http://multimerch.com/</author>
+
+
+
+  <!-- CSS PATCH -->
+  <file name="catalog/view/theme/&themeFolder;/template/tb/main.css.tpl">
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        .tb_table_1 tbody:first-child tr:first-child td
+      ]]></search>
+      <add><![CDATA[
+        table.ms-shipping h3 {
+          position: relative;
+          margin-bottom: 0;
+          margin-top: 20px;
+        }
+        table.ms-shipping h3:before {
+          content: '';
+          display: block;
+          margin-bottom: 30px;
+          border-top: 1px solid;
+          opacity: 0.15;
+        }
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        .tb_table_1 tbody:first-child tr:first-child td
+      ]]></search>
+      <add><![CDATA[
+        td > .table-responsive {
+          margin-top: -9px;
+        }
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        .tb_table_1 tbody:first-child tr:first-child td
+      ]]></search>
+      <add><![CDATA[
+        .tb_table_1 > tbody:first-child > tr:first-child > td
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/account-product-form-shipping-tab.tpl">
+    <operation error="skip">
+      <search position="replace"><![CDATA[list table]]></search>
+      <add><![CDATA[tb_table_1]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- CHECKOUT CONFIRM -->
+  <file name="catalog/view/theme/&themeFolder;/template/checkout/confirm.tpl">
+    <!-- * Add new shipping column header * -->
+    <operation>
+      <search position="after"><![CDATA[
+        <td class="price"><?php echo $column_price; ?></td>
+      ]]></search>
+      <add><![CDATA[
+        <td class="text-right"><?php echo $ms_shipping_totals; ?></td>
+      ]]></add>
+    </operation>
+    
+    <!-- * Add new shipping column * -->
+    <operation>
+      <search position="after"><![CDATA[
+        <td class="price"><?php echo $product['price']; ?></td>
+      ]]></search>
+      <add><![CDATA[
+          <td class="text-right"><?php echo $product['shipping_cost']; ?></td>
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- PRODUCT PAGE -->
+  <file name="catalog/view/theme/&themeFolder;/template/product/product.tpl">
+    <operation>
+      <search position="after"><![CDATA[
+        <li><?php echo $ms_catalog_seller_profile_totalproducts; ?></b> <?php echo $seller['total_products']; ?></li>
+      ]]></search>
+      <add><![CDATA[
+          <?php if ($seller['shipping_type'] == MsShipping::SHIPPING_TYPE_COMBINABLE) { ?>
+          <li><?php echo $ms_seller_combinable_shipping; ?></b></li>
+        <?php } ?>
+      ]]></add>
+    </operation>
+    <operation>
+      <search position="after"><![CDATA[
+        <dd><?php echo $stock; ?></dd>
+      ]]></search>
+      <add><![CDATA[
+          <?php if ($shippable) { ?>
+              <dd><?php echo $ms_shippable_product; ?></dd>
+        <?php } else { ?>
+            <dd><?php echo $ms_digital_product; ?></dd>
+        <?php } ?>
+      ]]></add>
+    </operation>
+    <!-- Shipping estimation -->
+    <operation>
+      <search position="after"><![CDATA[
+        </li><?php endif; ?><?php endforeach; ?>
+      ]]></search>
+      <add><![CDATA[<?php if ($this->config->get('msship_product_shipping_cost_estimation') && $shippable && $is_seller) { ?><li><a href="#tab-shipping-estimation" data-toggle="tab"><?php echo $ms_tab_shipping_estimation; ?></a></li>
+        <?php } ?>
+      ]]></add>
+    </operation>
+    <operation>
+      <search position="after"><![CDATA[
+        <div class="tb_tabs_content">
+      ]]></search>
+      <add><![CDATA[
+        <?php if ($this->config->get('msship_product_shipping_cost_estimation') && $shippable && $is_seller) { ?>
+         <div class="tab-pane" id="tab-shipping-estimation">
+          <label for="shipping_geo_zone"><?php echo $ms_select_geo_zone; ?></label>
+          <select id="shipping_geo_zone" name="shipping_geo_zone">
+            <?php foreach ($geo_zones as $geo_zone) { ?>
+              <option value="<?php echo $geo_zone['geo_zone_id']; ?>"><?php echo $geo_zone['name']; ?></option>
+            <?php } ?>
+          </select>
+          <a id="button_get_rates" class="button"><?php echo $ms_button_get_rates; ?></a>
+          <div class="shipping_methods"></div>
+          </div>
+        <?php } ?>
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+</modification>

@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<!DOCTYPE modification [
+<!ENTITY adminFolder "admin">
+<!ENTITY themeFolder "pavilion">
+]>
+<modification>
+  <id>MultiMerch Badges - Pavilion</id>
+  <version>1.2</version>
+  <author>http://themeburn.com/</author>
+  
+  <!-- Seller profile -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/catalog-seller-profile.tpl">
+    <operation error="skip">
+      <search position="after"><![CDATA[
+        <dd><?php echo $seller['total_products']; ?></dd>
+      ]]></search>
+      <add><![CDATA[
+        <?php if (!empty($seller['badges'])) { ?>
+        <dd class="tb_pt_10">
+        <?php foreach($seller['badges'] as $badge) { ?>
+          <img src="<?php echo $badge['image']; ?>" title="<?php echo $badge['description']; ?>" />
+        <?php } ?>
+        </dd>
+        <?php } ?>
+      ]]></add>
+    </operation>
+  </file>
+
+</modification>
