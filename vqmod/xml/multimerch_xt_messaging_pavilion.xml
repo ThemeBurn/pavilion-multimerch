@@ -4,8 +4,7 @@
 <!ENTITY themeFolder "pavilion">
 ]>
 <modification>
-  <id>MultiMerch Private Messaging System</id>
-  <version>1.2</version>
+  <id>MultiMerch Private Messaging System - Pavilion Theme</id>
   <author>http://multimerch.com/</author>
 
   <!-- Messages -->
@@ -22,37 +21,6 @@
 
   <!-- Account -->
   <file name="catalog/view/theme/&themeFolder;/template/account/account.tpl">
-    <!-- Conversations link for non-sellers in the "My Account" Area -->
-    <operation>
-      <search position="after" offset="1"><![CDATA[
-          <li><a href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
-      ]]></search>
-      <add><![CDATA[
-        <?php if ($this->config->get('mmess_conf_enable')) { ?>
-          <li>
-            <a href="<?php echo $this->url->link('account/msconversation', '', 'SSL'); ?>"><?php echo $ms_account_messages; ?></a>
-          </li>
-        <?php } ?>
-      ]]></add>
-    </operation>
-    <!-- Messages link in the Seller menu -->
-    <operation>
-      <search position="before"><![CDATA[
-        <?php if ($this->config->get('msconf_allow_withdrawal_requests')) { ?>
-      ]]></search>
-      <add><![CDATA[
-        <?php if ($this->config->get('mmess_conf_enable')) { ?>
-          <li>
-            <a href="<?php echo $this->url->link('account/msconversation', '', 'SSL'); ?>">
-              <?php if($this->config->get('msconf_graphical_sellermenu')) { ?>
-                <img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-envelope-96.png" />
-              <?php } ?>
-              <?php echo $ms_account_messages; ?>
-            </a>
-          </li>
-        <?php } ?>
-      ]]></add>
-    </operation>
     <!-- unread PM notification -->
     <operation error="skip">
       <search position="replace" offset="10"><![CDATA[

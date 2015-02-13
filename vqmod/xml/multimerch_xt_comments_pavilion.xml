@@ -5,7 +5,6 @@
 ]>
 <modification>
   <id>MultiMerch Comments - Pavilion</id>
-  <version>1.2</version>
   <author>http://themeburn.com/</author>
 
   <!-- Product page -->
@@ -50,48 +49,6 @@
       ]]></search>
       <add><![CDATA[
         <h2><?php echo $ms_catalog_seller_profile_tab_comments; ?></h2>
-      ]]></add>
-    </operation>
-  </file>
-
-  <!-- Seller dashboard -->
-  <file name="catalog/view/theme/&themeFolder;/template/multiseller/account-dashboard.tpl">
-    <operation error="skip">
-      <search position="before"><![CDATA[
-        <div class="buttons clearfix">
-      ]]></search>
-      <add><![CDATA[
-        <?php if (isset($comments)) { ?>
-        <span class="clear tb_sep"></span>
-        <h2><?php echo $ms_account_dashboard_comments; ?></h2>
-        <table class="tb_table_1 list comments" cellpadding="0" cellspacing="0">
-          <thead>
-            <tr>
-              <td class="name"><?php echo $ms_account_comments_name; ?></a></td>
-              <td class="product"><?php echo $ms_account_comments_product; ?></a></td>
-              <td class="comment"><?php echo $ms_account_comments_comment; ?></a></td>
-              <td class="date"><?php echo $ms_date; ?></a></td>
-            </tr>
-          </thead>
-    
-          <tbody>
-            <?php if (isset($comments) && $comments) { ?>
-            <?php foreach ($comments as $comment) { ?>
-            <tr>
-              <td><?php echo $comment['name']; ?></td>
-              <td><a href="<?php echo $this->url->link('product/product', 'product_id=' . $comment['product_id'], 'SSL'); ?>"><?php echo $comment['product_name']; ?></a></td>
-              <td><?php echo $comment['comment']; ?></td>
-              <td><?php echo $comment['date_created']; ?></td>
-            </tr>
-            <?php } ?>
-            <?php } else { ?>
-            <tr>
-              <td class="center" colspan="4"><?php echo $ms_account_comments_nocomments; ?></td>
-            </tr>
-            <?php } ?>
-          </tbody>
-        </table>
-        <?php } ?>
       ]]></add>
     </operation>
   </file>

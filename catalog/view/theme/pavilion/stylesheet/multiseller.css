@@ -620,10 +620,28 @@ ul.ms-sellermenu.graphical li a {
 .ms-account-dashboard .overview,
 .ms-account-dashboard .overview ~ div
 {
-  width: 33.3333%;
+  float: left !important;
+  width: 33.3333% !important;
   margin-bottom: 30px;
   padding-left: 15px;
 }
+@media only screen and (max-width: 768px) {
+  .ms-account-dashboard .overview,
+  .ms-account-dashboard .overview ~ div
+  {
+    float: none !important;
+    width: 100% !important;
+  }
+  .ms-account-dashboard .overview ~ div:before
+  {
+    content: '';
+    display: block;
+    margin-bottom: 30px;
+    border-top: 1px solid;
+    opacity: 0.2;
+  }
+}
+
 .ms-account-dashboard .stats + div {
   display: none;
 }
@@ -648,20 +666,28 @@ ul.ms-sellermenu.graphical li a {
   display: block;
   width: 100%;
   text-decoration: none;
-  margin-bottom: 5px;
-  height: 32px;
+  white-space: nowrap;
+}
+.ms-account-dashboard .nav a + a {
+  padding-top: 10px;
 }
 
 .ms-account-dashboard .nav a span {
-  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+  margin-left: -32px;
+  padding-left: 40px;
   vertical-align: middle;
+  white-space: normal;
+  font-weight: bold;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .ms-account-dashboard .nav a img {
   width: 32px;
   height: 32px;
   vertical-align: middle;
-  margin-right: 5px;
 }
 
 

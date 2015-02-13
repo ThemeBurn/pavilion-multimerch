@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!DOCTYPE modification [
+<!ENTITY adminFolder "admin">
+<!ENTITY themeFolder "pavilion">
+]>
+<modification>
+  <id>MultiMerch - Premium Addons Before</id>
+  <author>http://themeburn.com/</author>
+  
+  <!-- seller account SIDEBAR area links -->
+  <file name="catalog/view/theme/&themeFolder;/template/module/account.tpl">
+    <operation>
+      <search position="after"><![CDATA[
+        <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
+      ]]></search>
+      <add><![CDATA[
+        <?php /* Fix vQmod errors
+        <a href="<?php echo $logout; ?>" class="list-group-item"><?php echo $text_logout; ?></a>
+        */ ?>
+      ]]></add>
+    </operation>
+  </file>
+  
+  <!-- seller account SIDEBAR area links -->
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/account-dashboard.tpl">
+    <operation>
+      <search position="replace"><![CDATA[buttons clearfix]]></search>
+      <add><![CDATA[buttons]]></add>
+    </operation>
+  </file>
+
+</modification>

@@ -4,7 +4,6 @@
 ]>
 <modification>
   <id>MultiMerch Pavilion Theme</id>
-  <version>1.2</version>
   <author>http://themeburn.com/</author>
 
 
@@ -68,6 +67,72 @@
       ]]></add>
     </operation>
 
+    <!-- Slot System Messages -->
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <?php if (isset($error_warning) && $error_warning) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartSystem('route.page_system_warning'); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after" offset="2"><![CDATA[
+        <?php if (isset($error_warning) && $error_warning) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStop(); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <?php if (isset($success) && ($success)) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartSystem('route.page_system_success'); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after" offset="2"><![CDATA[
+        <?php if (isset($success) && ($success)) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStop(); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <?php if (isset($success) && $success) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartSystem('route.page_system_success'); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after" offset="2"><![CDATA[
+        <?php if (isset($success) && $success) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStop(); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="before"><![CDATA[
+        <?php if (isset($statustext) && ($statustext)) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStartSystem('route.page_system_status'); ?>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="after" offset="2"><![CDATA[
+        <?php if (isset($statustext) && ($statustext)) { ?>
+      ]]></search>
+      <add><![CDATA[
+        <?php $tbData->slotStop(); ?>
+      ]]></add>
+    </operation>
+
     <!-- Slot Page Content -->
     <operation error="skip">
       <search position="replace"><![CDATA[
@@ -75,6 +140,9 @@
       ]]></search>
       <add><![CDATA[
         <?php $tbData->slotStartSystem('route.page_content'); ?>
+        <?php $tbData->slotEcho('route.page_system_warning'); ?>
+        <?php $tbData->slotEcho('route.page_system_success'); ?>
+        <?php $tbData->slotEcho('route.page_system_status'); ?>
         <div
       ]]></add>
     </operation>
@@ -120,6 +188,14 @@
       ]]></search>
       <add><![CDATA[
         <table cellpadding="0" cellspacing="0" class="tb_table_1
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[
+        <table class="list comments
+      ]]></search>
+      <add><![CDATA[
+        <table cellpadding="0" cellspacing="0" class="tb_table_1 comments
       ]]></add>
     </operation>
     <operation error="skip">
