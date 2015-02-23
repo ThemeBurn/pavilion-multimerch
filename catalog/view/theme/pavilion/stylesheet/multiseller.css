@@ -732,23 +732,17 @@ table .filter input[type="text"] {
 .dataTables_filter {
   display: none;
 }
-.dataTables_wrapper .dataTables_paginate span,
-.dataTables_wrapper .dataTables_paginate a
-{
+.dataTables_wrapper .dataTables_paginate a {
   display: inline-block;
+  width: 30px;
   height: 30px;
-  margin: 0;
+  margin: 0 3px 0 0;
   padding: 0;
   line-height: 30px;
   text-align: center;
   vertical-align: top;
   border: none;
-  border-radius: 1px;
-}
-.dataTables_wrapper .dataTables_paginate span,
-.dataTables_wrapper .dataTables_paginate span a
-{
-  width: 30px;
+  border-radius: 1px !important;
 }
 .dataTables_wrapper .dataTables_paginate a.paginate_button {
   background-color: rgba(0, 0, 0, 0.15);

@@ -9,7 +9,7 @@
 
 
   <!-- ALL PAGES AFTER -->
-  <file name="catalog/view/theme/&themeFolder;/template/multiseller/*.tpl">
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/*.tpl,catalog/view/theme/&themeFolder;/template/account/register-seller.tpl">
 
     <!-- Slot Header -->
     <operation error="skip">

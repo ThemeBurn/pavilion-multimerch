@@ -28,6 +28,29 @@
           border-top: 1px solid;
           opacity: 0.15;
         }
+        #tab-shipping-estimation label,
+        #tab-shipping-estimation label ~ *
+        {
+          float: none;
+          vertical-align: middle;
+        }
+        #tab-shipping-estimation .shipping_methods:not(:empty) {
+          position: relative;
+          clear: both;
+          float: left;
+          max-width: 60%;
+          margin-top: 20px;
+        }
+        #tab-shipping-estimation .shipping_methods:not(:empty):before {
+          content: '';
+          display: block;
+          margin-bottom: 20px;
+          border-bottom: 1px solid;
+          opacity: 0.15;
+        }
+        #tab-shipping-estimation .shipping_methods table td:not(:last-child) {
+          padding-right: 20px;
+        }
       ]]></add>
     </operation>
     <operation error="skip">
@@ -115,7 +138,7 @@
       <search position="after"><![CDATA[
         </li><?php endif; ?><?php endforeach; ?>
       ]]></search>
-      <add><![CDATA[<?php if ($this->config->get('msship_product_shipping_cost_estimation') && $shippable && $is_seller) { ?><li><a href="#tab-shipping-estimation" data-toggle="tab"><?php echo $ms_tab_shipping_estimation; ?></a></li>
+      <add><![CDATA[<?php if ($this->config->get('msship_product_shipping_cost_estimation') && $shippable && $is_seller) { ?><li><a href="<?php echo $tbData->current_url; ?>#tab-shipping-estimation" data-toggle="tab"><?php echo $ms_tab_shipping_estimation; ?></a></li>
         <?php } ?>
       ]]></add>
     </operation>
@@ -136,6 +159,16 @@
           <div class="shipping_methods"></div>
           </div>
         <?php } ?>
+      ]]></add>
+    </operation>
+    <operation>
+      <search position="after"><![CDATA[
+        <?php $tbData->echoFooter($footer); ?>
+      ]]></search>
+      <add><![CDATA[
+      <script type="text/javascript"><!--
+      var shipping_estimate_product_id = <?php echo $product_id; ?>;
+      //--></script>
       ]]></add>
     </operation>
   </file>

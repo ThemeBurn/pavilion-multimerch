@@ -65,6 +65,77 @@
 
 
 
+  <!-- HEADER MENU -->
+  <file name="catalog/view/theme/&themeFolder;/template/common/header.tpl">
+    <operation error="log">
+      <search position="after"><![CDATA[
+        <li class="menu_account"><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
+      ]]></search>
+      <add><![CDATA[
+        <li class="tb_multiple">
+          <a href="<?php echo $this->url->link('seller/account-dashboard', '', 'SSL'); ?>" title="<?php echo $ms_account_seller_account; ?>"><?php echo $ms_account_seller_account; ?></span></a>
+          <div class="tb_submenu">
+            <ul class="tb_list_1">
+              <?php if ($ms_seller_created) { ?>
+              <?php if ($this->MsLoader->MsSeller->getStatus($this->customer->getId()) == MsSeller::STATUS_ACTIVE) { ?>
+              <li><a href="<?php echo $this->url->link('seller/account-dashboard', '', 'SSL'); ?>"><?php echo $ms_account_dashboard; ?></a></li>
+              <?php } ?>
+              <li><a href= "<?php echo $this->url->link('seller/account-profile', '', 'SSL'); ?>"><?php echo $ms_account_sellerinfo; ?></a></li>
+              <?php if ($this->MsLoader->MsSeller->getStatus($this->customer->getId()) == MsSeller::STATUS_ACTIVE) { ?>
+              <li><a href= "<?php echo $this->url->link('seller/account-product/create', '', 'SSL'); ?>"><?php echo $ms_account_newproduct; ?></a></li>
+              <li><a href= "<?php echo $this->url->link('seller/account-product', '', 'SSL'); ?>"><?php echo $ms_account_products; ?></a></li>
+              <li><a href= "<?php echo $this->url->link('seller/account-order', '', 'SSL'); ?>"><?php echo $ms_account_orders; ?></a></li>
+              <li><a href= "<?php echo $this->url->link('seller/account-transaction', '', 'SSL'); ?>"><?php echo $ms_account_transactions; ?></a></li>
+
+              <?php if ($this->config->get('msconf_allow_withdrawal_requests')) { ?>
+              <li><a href= "<?php echo $this->url->link('seller/account-withdrawal', '', 'SSL'); ?>"><?php echo $ms_account_withdraw; ?></a></li>
+              <?php } ?>
+              <li><a href= "<?php echo $this->url->link('seller/account-stats', '', 'SSL'); ?>"><?php echo $ms_account_stats; ?></a></li>
+              <li><a href="<?php echo $this->url->link('account/logout', '', 'SSL'); ?>"><?php echo $text_logout; ?></a></li>
+              <?php } ?>
+              <?php } else { ?>
+              <li><a href="<?php echo $this->url->link('account/register-seller', '', 'SSL'); ?>"><?php echo $ms_account_register_seller; ?></a></li>
+              <li><a href="<?php echo $this->url->link('account/login', '', 'SSL'); ?>"><?php echo $text_login; ?></a></li>
+              <?php } ?>
+            </ul>
+          </div>
+        </li>
+      ]]></add>
+    </operation>
+  </file>
+
+
+
+  <!-- ACCOUNT LOGIN -->
+  <file name="catalog/view/theme/&themeFolder;/template/account/login.tpl">
+    <operation error="skip">
+      <search position="before" index="2"><![CDATA[
+        <div class="tb_col_1_2">
+      ]]></search>
+      <add><![CDATA[
+        <?php $this->language->load('multiseller/multiseller'); ?>
+        <div class="tb_col_1_3">
+          <div id="new_customer">
+            <fieldset>
+              <legend><?php echo $this->language->get('ms_account_register_new'); ?></legend>
+              <p><strong><?php echo $this->language->get('ms_account_register_seller'); ?></strong></p>
+              <p><?php echo $this->language->get('ms_account_register_seller_note'); ?></p>
+            </fieldset>
+            <div class="tb_submit clearfix">
+              <a href="<?php echo $this->url->link('account/register-seller', '', 'SSL'); ?>" class="tb_button btn btn-primary"><?php echo $button_continue; ?></a>
+            </div>
+          </div>
+        </div>
+      ]]></add>
+    </operation>
+    <operation error="skip">
+      <search position="replace"><![CDATA[tb_col_1_2]]></search>
+      <add><![CDATA[tb_col_1_3]]></add>
+    </operation>
+  </file>
+
+
+
   <!-- SELLERS LIST -->
   <file name="catalog/view/theme/&themeFolder;/template/multiseller/catalog-seller.tpl">
     <operation error="skip">
@@ -134,7 +205,9 @@
             <?php } ?>
           </div>
         </div>
+        <!-- end sellerinfo -->
       </div>
+      <!-- end seller block -->
       <?php } ?>
       ]]></add>
     </operation>
@@ -179,7 +252,7 @@
         <?php foreach ($ms_product_attributes as $attribute) { ?>
         <?php if(is_array($attribute['values']) && implode($attribute['values']) != '' && (!isset($attribute['tab_display']) || !$attribute['tab_display'])) { ?>
         <?php if ($attribute['attribute_type'] == MsAttribute::TYPE_IMAGE) { ?>
-        <?php $attribute['image'] = (!empty($attribute['image']) ? $this->MsLoader->MsFile->resizeImage($attribute['image'], 50, 50) : $this->MsLoader->MsFile->resizeImage('no_image.jpg', 50, 50)); ?>
+        <?php $attribute['image'] = (!empty($attribute['image']) ? $this->MsLoader->MsFile->resizeImage($attribute['image'], 50, 50) : $this->MsLoader->MsFile->resizeImage('no_image.png', 50, 50)); ?>
         <dt>
           <img src="<?php echo $attribute['image']; ?>" style="vertical-align: middle; padding: 1px; border: 1px solid #DDDDDD; margin-bottom: 10px" />
           <?php echo $attribute['name']; ?>:
@@ -260,7 +333,7 @@
 
 
   <!-- ALL PAGES BEFORE -->
-  <file name="catalog/view/theme/&themeFolder;/template/multiseller/*.tpl">
+  <file name="catalog/view/theme/&themeFolder;/template/multiseller/*.tpl,catalog/view/theme/&themeFolder;/template/account/register-seller.tpl">
     <operation error="skip">
       <search position="before"><![CDATA[
         <div id="content"

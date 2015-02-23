@@ -59,16 +59,6 @@
         <a href="<?php echo $seller['href']; ?>" class="tb_button tb_h_24"><span><?php echo $ms_catalog_seller_profile_view_products; ?></span></a>
       </div>
 
-      <!--
-      <hr />
-      <div class="social">
-        <h3><?php echo $ms_catalog_seller_profile_social; ?></h3>
-        <img src="http://simplesharingbuttons.com/images/flat-web-icon-set-color-alt.png" />
-      </div>
-
-      <hr />
-      -->
-
       <?php if ($this->config->get('mmess_conf_enable') || $this->config->get('msconf_enable_private_messaging') == 2) { ?>
       <?php if ((!$this->customer->getId()) || ($this->customer->getId() != $seller['seller_id'])) { ?>
       <span class="clear tb_border_str_1 tb_mb_20 tb_pt_20"></span>

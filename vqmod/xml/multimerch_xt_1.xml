@@ -21,7 +21,7 @@
     </operation>
   </file>
   
-  <!-- seller account SIDEBAR area links -->
+  <!-- seller account DASHBOARD links -->
   <file name="catalog/view/theme/&themeFolder;/template/multiseller/account-dashboard.tpl">
     <operation>
       <search position="replace"><![CDATA[buttons clearfix]]></search>
